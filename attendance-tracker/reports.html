@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Reports</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>Attendance Tracker</h2>
+
+<ul>
+
+<li><a href="dashboard.html"><i class="fa-solid fa-house"></i> Dashboard</a></li>
+
+<li><a href="employees.html"><i class="fa-solid fa-users"></i> Employees</a></li>
+
+<li><a href="attendance.html"><i class="fa-solid fa-calendar-check"></i> Attendance</a></li>
+
+<li><a href="reports.html"><i class="fa-solid fa-chart-line"></i> Reports</a></li>
+
+<li><a href="#" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
+
+</ul>
+
+</div>
+
+<div class="content">
+
+<h1>Attendance Report</h1>
+
+<table id="reportTable" border="1" width="100%">
+
+<tr>
+
+<th>Name</th>
+
+<th>Department</th>
+
+<th>Status</th>
+
+</tr>
+
+</table>
+<button onclick="downloadCSV()">
+Download Report
+</button>
+
+</div>
+
+<script>
+
+let attendance=JSON.parse(localStorage.getItem("attendance"))||[];
+
+let table=document.getElementById("reportTable");
+
+attendance.forEach(emp=>{
+
+table.innerHTML+=`
+
+<tr>
+
+<td>${emp.name}</td>
+
+<td>${emp.department}</td>
+
+<td>${emp.status}</td>
+
+</tr>
+
+`;
+
+});
+
+function logout(){
+
+localStorage.removeItem("login");
+
+window.location="index.html";
+
+}
+function downloadCSV(){
+
+let attendance=
+JSON.parse(localStorage.getItem("attendance"))||[];
+
+let csv="Name,Department,Status\n";
+
+attendance.forEach(emp=>{
+
+csv+=`${emp.name},${emp.department},${emp.status}\n`;
+
+});
+
+let blob=new Blob([csv],{type:"text/csv"});
+
+let url=URL.createObjectURL(blob);
+
+let a=document.createElement("a");
+
+a.href=url;
+
+a.download="Attendance_Report.csv";
+
+a.click();
+
+}
+
+</script>
+
+</body>
+
+</html>

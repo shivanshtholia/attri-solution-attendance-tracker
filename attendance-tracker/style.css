@@ -1,0 +1,422 @@
+/* =====================================
+   ATTRI SOLUTIONS HRMS
+   STYLE.CSS
+===================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f3f4f6;
+    color:#1f2937;
+}
+
+/* =========================
+ SIDEBAR
+========================= */
+
+.sidebar{
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:260px;
+
+    height:100vh;
+
+    background:linear-gradient(180deg,#1f2937,#111827);
+
+    color:white;
+
+    padding:28px 20px;
+
+    box-shadow:5px 0 30px rgba(0,0,0,.15);
+
+}
+
+.sidebar h2{
+
+    text-align:center;
+
+    margin-bottom:40px;
+
+    font-size:28px;
+
+    line-height:40px;
+
+    font-weight:700;
+
+}
+
+.sidebar ul{
+
+    list-style:none;
+
+}
+
+.sidebar li{
+
+    margin-bottom:10px;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    text-decoration:none;
+
+    color:#d1d5db;
+
+    padding:15px 18px;
+
+    border-radius:12px;
+
+    transition:.35s;
+
+    font-size:16px;
+
+    font-weight:500;
+
+}
+
+.sidebar a:hover{
+
+    background:#10b981;
+
+    color:white;
+
+    padding-left:28px;
+
+    box-shadow:0 10px 20px rgba(16,185,129,.25);
+
+}
+
+/* =========================
+ CONTENT
+========================= */
+
+.content{
+
+    margin-left:280px;
+
+    padding:35px;
+
+}
+
+.content h1{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    margin-bottom:30px;
+
+}
+
+/* =========================
+ TOPBAR
+========================= */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:white;
+
+    padding:22px 30px;
+
+    border-radius:18px;
+
+    margin-bottom:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.07);
+
+}
+
+.topbar h2{
+
+    margin-bottom:5px;
+
+}
+
+.topbar p{
+
+    color:#6b7280;
+
+}
+
+/* =========================
+ CARDS
+========================= */
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.card{
+
+    background:white;
+
+    padding:28px;
+
+    border-radius:18px;
+
+    border-left:6px solid #10b981;
+
+    box-shadow:0 12px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    cursor:pointer;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.card h2{
+
+    color:#059669;
+
+    font-size:42px;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#6b7280;
+
+    font-size:17px;
+
+}
+
+/* =========================
+ FORM
+========================= */
+
+input{
+
+    width:100%;
+
+    padding:14px 16px;
+
+    border-radius:12px;
+
+    border:1px solid #d1d5db;
+
+    font-size:15px;
+
+    margin-bottom:15px;
+
+    transition:.3s;
+
+    background:white;
+
+}
+
+input:focus{
+
+    outline:none;
+
+    border-color:#10b981;
+
+    box-shadow:0 0 0 4px rgba(16,185,129,.12);
+
+}
+
+/* =========================
+ BUTTON
+========================= */
+
+button{
+
+    background:#059669;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 22px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+button:hover{
+
+    background:#047857;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 10px 20px rgba(5,150,105,.25);
+
+}
+
+/* =========================
+ TABLE
+========================= */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    margin-top:25px;
+
+    background:white;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+th{
+
+    background:#059669;
+
+    color:white;
+
+    padding:16px;
+
+    font-size:15px;
+
+}
+
+td{
+
+    padding:16px;
+
+    text-align:center;
+
+}
+
+tr{
+
+    transition:.2s;
+
+}
+
+tr:nth-child(even){
+
+    background:#f9fafb;
+
+}
+
+tr:hover{
+
+    background:#ecfdf5;
+
+}
+
+/* =========================
+ SEARCH
+========================= */
+
+#search{
+
+    margin-bottom:20px;
+
+}
+
+/* =========================
+ SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#10b981;
+
+    border-radius:20px;
+
+}
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+
+.sidebar{
+
+    width:90px;
+
+}
+
+.sidebar h2{
+
+    display:none;
+
+}
+
+.sidebar a{
+
+    text-align:center;
+
+    padding:14px 0;
+
+    font-size:13px;
+
+}
+
+.content{
+
+    margin-left:110px;
+
+    padding:20px;
+
+}
+
+.cards{
+
+    grid-template-columns:1fr;
+
+}
+
+}

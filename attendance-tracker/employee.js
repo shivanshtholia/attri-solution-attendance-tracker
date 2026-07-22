@@ -1,17 +1,17 @@
-// Check Login
+
 if (localStorage.getItem("login") !== "true") {
     window.location = "index.html";
 }
 
-// Load Employees
+
 let employees = JSON.parse(localStorage.getItem("employees")) || [];
 
-// Save Employees
+
 function saveEmployees() {
     localStorage.setItem("employees", JSON.stringify(employees));
 }
 
-// Render Employee Table
+
 function renderTable(list = employees) {
 
     let table = document.getElementById("table");
@@ -26,7 +26,7 @@ function renderTable(list = employees) {
 
     list.forEach((emp) => {
 
-        // Original Index Find
+        
         const originalIndex = employees.findIndex(
             e => e.name === emp.name && e.department === emp.department
         );
@@ -44,7 +44,7 @@ function renderTable(list = employees) {
     });
 }
 
-// Add Employee
+
 function addEmployee() {
 
     let name = document.getElementById("name").value.trim();
@@ -55,7 +55,7 @@ function addEmployee() {
         return;
     }
 
-    // Prevent Duplicate
+    
     let exists = employees.some(
         emp =>
             emp.name.toLowerCase() === name.toLowerCase() &&
@@ -79,7 +79,7 @@ function addEmployee() {
     document.getElementById("department").value = "";
 }
 
-// Delete Employee
+
 function deleteEmployee(index) {
 
     if (confirm("Are you sure you want to delete this employee?")) {
@@ -92,7 +92,7 @@ function deleteEmployee(index) {
     }
 }
 
-// Edit Employee
+
 function editEmployee(index) {
 
     let newName = prompt("Employee Name", employees[index].name);
@@ -118,7 +118,7 @@ function editEmployee(index) {
     renderTable();
 }
 
-// Search Employee
+
 function searchEmployee() {
 
     let value = document
@@ -134,7 +134,7 @@ function searchEmployee() {
     renderTable(filtered);
 }
 
-// Logout
+
 function logout() {
 
     localStorage.removeItem("login");
@@ -142,5 +142,4 @@ function logout() {
     window.location = "index.html";
 }
 
-// Initial Load
 renderTable();

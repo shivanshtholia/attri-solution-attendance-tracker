@@ -12,7 +12,7 @@ const auth = (req, res, next) => {
             });
         }
 
-        // Bearer token ko alag karo
+        
         const token = authHeader.startsWith("Bearer ")
             ? authHeader.split(" ")[1]
             : authHeader;

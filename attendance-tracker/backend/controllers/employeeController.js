@@ -32,6 +32,12 @@ exports.addEmployee = async (req, res) => {
 
         const bcrypt = require("bcryptjs");
 
+        if (!password) {
+            return res.status(400).json({
+                message: "Password is required"
+            });
+        }
+
         const hashedPassword = await bcrypt.hash(password,10);
 
         const user = await User.create({

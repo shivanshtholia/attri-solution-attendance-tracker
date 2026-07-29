@@ -48,6 +48,12 @@
 
 <th>Status</th>
 
+<th>Check In</th>
+
+<th>Check Out</th>
+
+<th>Date</th>
+
 </tr>
 
 </table>
@@ -57,65 +63,7 @@ Download Report
 
 </div>
 
-<script>
-
-let attendance=JSON.parse(localStorage.getItem("attendance"))||[];
-
-let table=document.getElementById("reportTable");
-
-attendance.forEach(emp=>{
-
-table.innerHTML+=`
-
-<tr>
-
-<td>${emp.name}</td>
-
-<td>${emp.department}</td>
-
-<td>${emp.status}</td>
-
-</tr>
-
-`;
-
-});
-
-function logout(){
-
-localStorage.removeItem("login");
-
-window.location="index.html";
-
-}
-function downloadCSV(){
-
-let attendance=
-JSON.parse(localStorage.getItem("attendance"))||[];
-
-let csv="Name,Department,Status\n";
-
-attendance.forEach(emp=>{
-
-csv+=`${emp.name},${emp.department},${emp.status}\n`;
-
-});
-
-let blob=new Blob([csv],{type:"text/csv"});
-
-let url=URL.createObjectURL(blob);
-
-let a=document.createElement("a");
-
-a.href=url;
-
-a.download="Attendance_Report.csv";
-
-a.click();
-
-}
-
-</script>
+<script src="reports.js"></script>
 
 </body>
 

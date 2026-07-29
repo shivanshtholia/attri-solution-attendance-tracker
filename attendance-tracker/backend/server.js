@@ -2,6 +2,8 @@ require("dotenv").config();
 
 const express = require("express");
 const cors = require("cors");
+const attendanceRoutes = require("./routes/attendanceRoutes");
+const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const connectDB = require("./config/db");
 
@@ -14,12 +16,10 @@ connectDB();
 
 app.use(cors());
 app.use(express.json());
-
-// Routes
+app.use("/api/attendance", attendanceRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/employees", employeeRoutes);
-
-// Test Route
+app.use("/api/dashboard", dashboardRoutes);
 app.get("/", (req, res) => {
     res.send("Attendance Tracker Backend Running");
 });
